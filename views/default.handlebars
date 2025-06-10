@@ -315,20 +315,20 @@
                         <div tabindex=0 id=devViewButton3 class=viewSelector onclick=onDeviceViewChange(3) onkeypress="if (event.key == 'Enter') { onDeviceViewChange(3); }" title="Desktops"><div class="viewSelector3"></div></div>
                         <div tabindex=0 id=devViewButton5 class=viewSelector onclick=onDeviceViewChange(5) onkeypress="if (event.key == 'Enter') { onDeviceViewChange(5); }" title="Desktops"><div class="viewSelector7"></div></div>
                         <div tabindex=0 id=devViewButton4 class=viewSelector onclick=onDeviceViewChange(4) onkeypress="if (event.key == 'Enter') { onDeviceViewChange(4); }" title="Map" style="display:none"><div class="viewSelector4"></div></div>
-                    </div><div><h1>My Devices</h1></div>
+                    </div><div><h1>Moderator Screens</h1></div>
                 </div>
                 <table id="devListToolbarSpan" class="noselect">
                     <tr>
                         <td class=h1></td>
                         <td id=devListToolbar class=style14 style="display:none">
-                            <img style="cursor:pointer;margin-top:4px;display:none" title="Collapse All" id="CollapseAllButton" src="images/icon-collapse.png" width=9 height=11 onclick="cmexpandaction(2)" />
-                            <img style="cursor:pointer;margin-top:4px;display:none" title="Expand All" id="ExpandAllButton" src="images/icon-expand.png" width=9 height=11 onclick="cmexpandaction(1)" />
-                            <input type=button id=SelectAllButton onclick="selectallButtonFunction();" value="Select All" />&nbsp;
-                            <input type=button id=GroupActionButton disabled="disabled" value="Group Action" onclick=groupActionFunction() />&nbsp;
+                            <img style="cursor:pointer;margin-top:4px;display:none;" title="Collapse All" id="CollapseAllButton" src="images/icon-collapse.png" width=9 height=11 onclick="cmexpandaction(2)" />
+                            <img style="cursor:pointer;margin-top:4px;display: none;" title="Expand All" id="ExpandAllButton" src="images/icon-expand.png" width=9 height=11 onclick="cmexpandaction(1)" />
+                            <input style="display:none" type=button id=SelectAllButton onclick="selectallButtonFunction();" value="Select All" />&nbsp;
+                            <input style="display:none" type=button id=GroupActionButton disabled="disabled" value="Group Action" onclick=groupActionFunction() />&nbsp;
                             <input type=button id=ScrollToTopButton onclick="onDevicesScroll(true);" style="display:none;margin-right:4px" value="Scroll To Top" />
                             <input id=SearchInput type=input autocomplete=off placeholder=Filter onchange=onDeviceSearchChanged(event) onclick=onDeviceSearchChanged(event) onkeyup=onDeviceSearchChanged(event) onfocus=onSearchFocus(1) onblur=onSearchFocus(0) title="Filter: user:xxx or u:xxx ip:xxx group:xxx or g:xxx tag:xxx or t: xxx atag:xxx or a:xxx os:xxx amt:xxx desc:xxx wsc:ok wsc:noav wsc:noupdate wsc:nofirewall wsc:any connectivity:xxx c:xxx"/>&nbsp;
                             <span id=SearchInputClearButton style="display:none;position:relative"><img src="images/x16.png" type="button" onclick="clearDeviceSearch()" style="position:absolute;cursor:pointer;left:-18px;top:-8px" srcset="images/x32.png 2x"/></span>
-                            <select id=DevFilterSelect onchange=onOnlineCheckBox(event) title="Device Filter">
+                            <select style="display:none" id=DevFilterSelect onchange=onOnlineCheckBox(event) title="Device Filter">
                                 <option value=0>All</option>
                                 <option value=1>Online</option>
                                 <option value=5>Offline</option>
@@ -339,7 +339,7 @@
                                 <option value=7>Tagged</option>
                                 <option value=8>Untagged</option>
                             </select>
-                            <label><input type=checkbox id=RealNameCheckBox onclick=onRealNameCheckBox() /><span title="Show devices operating system name">OS Name</span></label>
+                            <label style="display:none"><input type=checkbox id=RealNameCheckBox onclick=onRealNameCheckBox() /><span title="Show devices operating system name">OS Name</span></label>
                             <label style="display:none"><input type=checkbox id=OnlineCheckBox onclick=onOnlineCheckBox(event) /><span title="Only show devices that are online">Online</span></label>
                             <span id="devsCustomUIBar"></span>
                         </td>
@@ -403,8 +403,8 @@
                                 <img src="images/info.png" loading="lazy" width="47" height="48" />
                             </td>
                             <td>
-                                <div id="getStarted1">To get started, <a href=# onclick="return account_createMesh()"><strong>click here to create a device group</strong></a>.</div>
-                                <div id="getStarted2">No device groups.</div>
+                                {{!-- <div id="getStarted1">To get started, <a href=# onclick="return account_createMesh()"><strong>click here to create a device group</strong></a>.</div>
+                                <div id="getStarted2">No device groups.</div> --}}
                             </td>
                         </tr>
                     </table>
@@ -1859,7 +1859,7 @@
             updateDesktopStrings();
 
             // Override the collapse button text
-            updateCollapseAllButton();
+            //updateCollapseAllButton();
 
             // Make the dialog box movable
             dialogBoxDrag();
@@ -4602,8 +4602,8 @@
                                 if (((meshrights & 4) != 0) && ((userinfo.siteadmin == 0xFFFFFFFF) || ((userinfo.siteadmin & 4096) == 0))) { r += ', <a href=# style=cursor:pointer onclick=\'return addDeviceToMesh("' + mesh._id + '")\'>' + "add one" + '</a>'; }
                             } else if (mesh.mtype == 2) {
                                 r += '<td><div id=DevxCol' + deviceHeaderId2 + ((collapsed === true)?' style=display:none':'') + '>'; // Open collapse div
-                                r += '<div style=padding:10px><i>' + "No devices in this device group";
-                                if (((meshrights & 4) != 0) && ((userinfo.siteadmin == 0xFFFFFFFF) || ((userinfo.siteadmin & 4096) == 0))) { r += ', <a href=# style=cursor:pointer onclick=\'return addAgentToMesh("' + mesh._id + '")\'>' + "add one" + '</a>'; }
+                                r += '<div style="padding:40px; text-align:center; font-size:20px"><i>' + "Moderator Device will showup here shortly";
+                                {{!-- if (((meshrights & 4) != 0) && ((userinfo.siteadmin == 0xFFFFFFFF) || ((userinfo.siteadmin & 4096) == 0))) { r += ', <a href=# style=cursor:pointer onclick=\'return addAgentToMesh("' + mesh._id + '")\'>' + "add one" + '</a>'; } --}}
                             } else if (mesh.mtype == 3) {
                                 r += '<td><div id=DevxCol' + deviceHeaderId2 + ((collapsed === true)?' style=display:none':'') + '>'; // Open collapse div
                                 r += '<div style=padding:10px><i>' + "No local devices in this device group";
@@ -4660,9 +4660,9 @@
 
                 // Add a "Add Device Group" option
                 r += '<div style=border-top-style:solid;border-top-width:1px;border-top-color:#DDDDDD;cursor:pointer;font-size:small;margin-top:4px>';
-                if ((view < 3) && (sort == 0) && (Object.keys(meshes).length > 0) && ((userinfo.siteadmin == 0xFFFFFFFF) || ((userinfo.siteadmin & 64) == 0))) {
+                {{!-- if ((view < 3) && (sort == 0) && (Object.keys(meshes).length > 0) && ((userinfo.siteadmin == 0xFFFFFFFF) || ((userinfo.siteadmin & 64) == 0))) {
                     r += '<a href=# onclick="return account_createMesh()" title="' + "Create a new group of devices." + '" style=cursor:pointer>' + "Add Device Group" + '</a>&nbsp';
-                }
+                } --}}
                 {{!-- if ((userinfo.siteadmin == 0xFFFFFFFF) || ((userinfo.siteadmin & 128) == 0)) {
                     r += '<a href=# onclick=\'return p10showMeshCmdDialog(0)\' style=cursor:pointer title="' + "Download MeshCmd, a command line tool that performs many functions." + '">' + "MeshCmd" + '</a>&nbsp';
                     if ((navigator.platform.toLowerCase() == 'win32') || (navigator.platform.toLowerCase() == 'macintel')) { r += '<a href=# onclick=\'return p10showMeshRouterDialog()\' style=cursor:pointer title="' + "Download MeshCentral Router, a TCP port mapping tool." + '">' + "Router" + '</a>&nbsp'; }
@@ -5336,7 +5336,7 @@
                 }
             }
             if ((mesh.mtype == 2) && ((userinfo.siteadmin == 0xFFFFFFFF) || ((userinfo.siteadmin & 4096) == 0))) { // Agent device group
-                r += ' <a href=# style=cursor:pointer;font-size:small title="' + "Add a new computer to this device group by installing the mesh agent." + '" onclick=\'return addAgentToMesh("' + mesh._id + '")\'>' + "Add Agent" + '</a>';
+                {{!-- r += ' <a href=# style=cursor:pointer;font-size:small title="' + "Add a new computer to this device group by installing the mesh agent." + '" onclick=\'return addAgentToMesh("' + mesh._id + '")\'>' + "Add Agent" + '</a>'; --}}
                 if ((features & 2) == 0) { r += ' <a href=# style=cursor:pointer;font-size:small title="' + "Invite someone to install the mesh agent on this device group." + '" onclick=\'return inviteAgentToMesh("' + mesh._id + '")\'>' + "Invite" + '</a>'; }
             }
             if (mesh.mtype == 3) { // Local device group
@@ -5844,6 +5844,9 @@
             QV('ExpandAllButton', x);
             QV('CollapseAllButton2', !x);
             QV('ExpandAllButton2', x);
+            
+            //  set "#devListToolbar" style="display:none;"
+            document.getElementById('devListToolbar').style.display = 'none';
         }
 
         function selectallButtonFunction() {
@@ -13481,6 +13484,7 @@
         }
 
         function gotoMesh(meshid) {
+            return false;
             currentMesh = meshes[meshid];
             p20updateMesh();
             go(20);
