@@ -323,12 +323,12 @@
                         <td id=devListToolbar class=style14 style="display:none">
                             <img style="cursor:pointer;margin-top:4px;display:none;" title="Collapse All" id="CollapseAllButton" src="images/icon-collapse.png" width=9 height=11 onclick="cmexpandaction(2)" />
                             <img style="cursor:pointer;margin-top:4px;display: none;" title="Expand All" id="ExpandAllButton" src="images/icon-expand.png" width=9 height=11 onclick="cmexpandaction(1)" />
-                            <input style="display:none" type=button id=SelectAllButton onclick="selectallButtonFunction();" value="Select All" />&nbsp;
-                            <input style="display:none" type=button id=GroupActionButton disabled="disabled" value="Group Action" onclick=groupActionFunction() />&nbsp;
+                            <input type=button id=SelectAllButton onclick="selectallButtonFunction();" value="Select All" />&nbsp;
+                            <input style="" type=button id=GroupActionButton disabled="disabled" value="Group Action" onclick=groupActionFunction() />&nbsp;
                             <input type=button id=ScrollToTopButton onclick="onDevicesScroll(true);" style="display:none;margin-right:4px" value="Scroll To Top" />
                             <input id=SearchInput type=input autocomplete=off placeholder=Filter onchange=onDeviceSearchChanged(event) onclick=onDeviceSearchChanged(event) onkeyup=onDeviceSearchChanged(event) onfocus=onSearchFocus(1) onblur=onSearchFocus(0) title="Filter: user:xxx or u:xxx ip:xxx group:xxx or g:xxx tag:xxx or t: xxx atag:xxx or a:xxx os:xxx amt:xxx desc:xxx wsc:ok wsc:noav wsc:noupdate wsc:nofirewall wsc:any connectivity:xxx c:xxx"/>&nbsp;
                             <span id=SearchInputClearButton style="display:none;position:relative"><img src="images/x16.png" type="button" onclick="clearDeviceSearch()" style="position:absolute;cursor:pointer;left:-18px;top:-8px" srcset="images/x32.png 2x"/></span>
-                            <select style="display:none" id=DevFilterSelect onchange=onOnlineCheckBox(event) title="Device Filter">
+                            <select style="" id=DevFilterSelect onchange=onOnlineCheckBox(event) title="Device Filter">
                                 <option value=0>All</option>
                                 <option value=1>Online</option>
                                 <option value=5>Offline</option>
@@ -339,7 +339,7 @@
                                 <option value=7>Tagged</option>
                                 <option value=8>Untagged</option>
                             </select>
-                            <label style="display:none"><input type=checkbox id=RealNameCheckBox onclick=onRealNameCheckBox() /><span title="Show devices operating system name">OS Name</span></label>
+                            <label style=""><input type=checkbox id=RealNameCheckBox onclick=onRealNameCheckBox() /><span title="Show devices operating system name">OS Name</span></label>
                             <label style="display:none"><input type=checkbox id=OnlineCheckBox onclick=onOnlineCheckBox(event) /><span title="Only show devices that are online">Online</span></label>
                             <span id="devsCustomUIBar"></span>
                         </td>
