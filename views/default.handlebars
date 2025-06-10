@@ -173,7 +173,7 @@
             <div id=LeftMenuMyDevices tabindex=0 class="lbbutton lbbuttonsel" title="My Devices" onmouseup=go(1,event) onkeypress="if (event.key=='Enter') { go(1); }">
                 <div class="lbtg lb2"></div>
             </div>
-            <div id=LeftMenuMyAccount tabindex=0 class="lbbutton" title="My Account" onmouseup=go(2,event) onkeypress="if (event.key=='Enter') { go(2); }">
+            {{!-- <div id=LeftMenuMyAccount tabindex=0 class="lbbutton" title="My Account" onmouseup=go(2,event) onkeypress="if (event.key=='Enter') { go(2); }">
                 <div class="lbtg lb1"></div>
             </div>
             <div id=LeftMenuMyEvents tabindex=0 class="lbbutton" title="My Events" onmouseup=go(3,event) onkeypress="if (event.key=='Enter') { go(3); }">
@@ -187,7 +187,7 @@
             </div>
             <div id=LeftMenuMyServer tabindex=0 class="lbbutton" style="display:none" title="My Server" onmouseup=go(6,event) onkeypress="if (event.key=='Enter') { go(6); }">
                 <div class="lbtg lb6"></div>
-            </div>
+            </div> --}}
         </div>
         <div id=topbar class=noselect>
             <div>
@@ -4663,10 +4663,10 @@
                 if ((view < 3) && (sort == 0) && (Object.keys(meshes).length > 0) && ((userinfo.siteadmin == 0xFFFFFFFF) || ((userinfo.siteadmin & 64) == 0))) {
                     r += '<a href=# onclick="return account_createMesh()" title="' + "Create a new group of devices." + '" style=cursor:pointer>' + "Add Device Group" + '</a>&nbsp';
                 }
-                if ((userinfo.siteadmin == 0xFFFFFFFF) || ((userinfo.siteadmin & 128) == 0)) {
+                {{!-- if ((userinfo.siteadmin == 0xFFFFFFFF) || ((userinfo.siteadmin & 128) == 0)) {
                     r += '<a href=# onclick=\'return p10showMeshCmdDialog(0)\' style=cursor:pointer title="' + "Download MeshCmd, a command line tool that performs many functions." + '">' + "MeshCmd" + '</a>&nbsp';
                     if ((navigator.platform.toLowerCase() == 'win32') || (navigator.platform.toLowerCase() == 'macintel')) { r += '<a href=# onclick=\'return p10showMeshRouterDialog()\' style=cursor:pointer title="' + "Download MeshCentral Router, a TCP port mapping tool." + '">' + "Router" + '</a>&nbsp'; }
-                }
+                } --}}
                 r += '</div><br/>';
 
                 QH('xdevices', r);
